@@ -1,4 +1,4 @@
-import {createContext, useContext, useState} from 'react';
+import {createContext, useCallback, useContext, useState} from 'react';
 import {ethers} from 'ethers';
 
 export interface RootContextType {
@@ -37,5 +37,14 @@ export const useSetRootContext = () => {
 
   if (!context) throw new Error('You must wrap your app content in EthooksProvider component');
 
-  return context[1];
+  const setState = context[1];
+
+  return useCallback(
+    (
+      action: Partial<RootContextType> | ((previous: RootContextType) => Partial<RootContextType>),
+    ): void => {
+      setState((prev) => ({...prev, ...(typeof action === 'function' ? action(prev) : action)}));
+    },
+    [setState],
+  );
 };
