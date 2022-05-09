@@ -1,4 +1,4 @@
-import {RootContextProvider} from '../contexts/RootContext';
+import {RootContextProvider} from '../contexts';
 
 export interface EthooksProviderProps
   extends React.ComponentPropsWithoutRef<typeof RootContextProvider> {
