@@ -3,7 +3,7 @@ import {useCallback} from 'react';
 
 const useContractRead = (contract: ethers.Contract, method: string, defaultArgs: Args = []) => {
   const read = useCallback(
-    async (args = defaultArgs): Promise<ContractResult> => {
+    async (args: Args = defaultArgs): Promise<ContractResult> => {
       try {
         return {
           status: true,

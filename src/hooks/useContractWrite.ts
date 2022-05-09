@@ -10,7 +10,7 @@ const useContractWrite = (contract: ethers.Contract, method: string, defaultArgs
 
   const write = useCallback(
     async (
-      args = defaultArgs,
+      args: Args = defaultArgs,
       listeners: Record<string, ethers.providers.Listener> = {},
     ): Promise<ContractResult> => {
       if (!root.signer) await connect();
