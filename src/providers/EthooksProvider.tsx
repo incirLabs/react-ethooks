@@ -1,16 +1,32 @@
+import {useEffect} from 'react';
 import {EthersContext, RootContextProvider} from '../contexts';
+import useConenct from '../hooks/useConnect';
 
 export interface EthooksProviderProps
   extends React.ComponentPropsWithoutRef<typeof RootContextProvider> {
   provider: EthersProvider;
+  autoConnect?: boolean;
   chains?: Chain[];
 }
+
+const AutoConnector: React.FC = () => {
+  const {connect} = useConenct();
+
+  useEffect(() => {
+    connect();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return null;
+};
 
 export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   children,
   chains,
   initialState,
   provider,
+  autoConnect,
   ...props
 }) => {
   return (
@@ -25,6 +41,8 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
         {...props}
       >
         {children}
+
+        {autoConnect ? <AutoConnector /> : null}
       </RootContextProvider>
     </EthersContext.Provider>
   );
