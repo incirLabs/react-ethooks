@@ -7,6 +7,7 @@ const external = require('rollup-plugin-peer-deps-external');
 const commonjs = require('@rollup/plugin-commonjs');
 const typescript = require('@rollup/plugin-typescript');
 const json = require('@rollup/plugin-json');
+const cleanup = require('rollup-plugin-cleanup');
 
 module.exports = [
   {
@@ -39,6 +40,7 @@ module.exports = [
       json({
         compact: true,
       }),
+      cleanup(),
     ],
   },
 ];
