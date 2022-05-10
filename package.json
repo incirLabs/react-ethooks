@@ -1,6 +1,8 @@
 {
   "name": "@incirlabs/ethooks",
   "version": "1.0.0",
+  "title": "React Ethereum Hooks",
+  "description": "React hooks for the ethers library",
   "private": false,
   "main": "build/index.js",
   "module": "build/index.esm.js",
@@ -9,21 +11,36 @@
   "files": [
     "build"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/incirlabs/react-ethooks"
+  },
+  "bugs": {
+    "url": "https://github.com/incirlabs/react-ethooks/issues"
+  },
+  "keywords": [
+    "ethereum",
+    "ethers",
+    "ethersjs",
+    "react",
+    "hooks",
+    "web3"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "yarn clean-build && yarn rollup-build",
     "watch": "yarn rollup-build -w",
     "rollup-build": "rollup -c",
     "clean-build": "rimraf build",
-    "format": "prettier --write src/**/*.{ts,tsx}",
-    "format:check": "prettier -c src/**/*.{ts,tsx}",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier -c \"src/**/*.{ts,tsx}\"",
     "lint": "yarn lint:check --fix",
-    "lint:check": "eslint src/**/*.{ts,tsx}",
+    "lint:check": "eslint \"src/**/*.{ts,tsx}\"",
     "semantic-release": "semantic-release"
   },
   "peerDependencies": {
-    "ethers": ">=5.6.1",
-    "react": ">=17.0.0"
+    "react": ">=17.0.0",
+    "ethers": ">=5.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
