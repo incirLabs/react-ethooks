@@ -1,5 +1,5 @@
 {
-  "name": "@incirlabs/ethooks",
+  "name": "@incirlabs/react-ethooks",
   "version": "1.0.0",
   "title": "React Ethereum Hooks",
   "description": "React hooks for the ethers library",
