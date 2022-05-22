@@ -11,7 +11,7 @@ const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?:
 
     if (foundIndex === -1) {
       if (chains.find((chain) => chain.chainId === 1)) {
-        provider.send('wallet_switchEthereumChain', [{chainId: 1}]);
+        provider.send('wallet_switchEthereumChain', [{chainId: '0x1'}]);
 
         return;
       }
