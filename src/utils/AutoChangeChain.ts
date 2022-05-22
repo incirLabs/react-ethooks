@@ -1,6 +1,7 @@
 /* eslint no-underscore-dangle: "off" */
 
-import {ethers, BigNumber} from 'ethers';
+import {ethers} from 'ethers';
+import {hexValue} from 'ethers/lib/utils';
 
 const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?: Chain[]) => {
   await provider._networkPromise;
@@ -13,7 +14,7 @@ const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?:
         'wallet_addEthereumChain',
         chains.map((chain) => ({
           ...chain,
-          chainId: BigNumber.from(chain.chainId).toHexString(),
+          chainId: hexValue(chain.chainId),
         })),
       );
     }
