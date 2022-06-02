@@ -10,26 +10,30 @@ const useConnect = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error>();
 
-  const connect = useCallback(async () => {
-    AutoChangeChain(provider, chains);
+  const connect = useCallback(
+    async (onError?: (error: Error) => unknown) => {
+      AutoChangeChain(provider, chains);
 
-    setLoading(true);
-    setError(undefined);
+      setLoading(true);
+      setError(undefined);
 
-    try {
-      await provider.send('eth_requestAccounts', []);
-    } catch (err) {
-      setError(err as Error);
-    } finally {
-      setLoading(false);
-    }
+      try {
+        await provider.send('eth_requestAccounts', []);
+      } catch (err) {
+        setError(err as Error);
+        onError?.(err as Error);
+      } finally {
+        setLoading(false);
+      }
 
-    const signer = provider.getSigner();
-    const address = await signer.getAddress();
+      const signer = provider.getSigner();
+      const address = await signer.getAddress();
 
-    setRoot({signer, address});
-    return address;
-  }, [provider, chains, setRoot]);
+      setRoot({signer, address});
+      return address;
+    },
+    [provider, chains, setRoot],
+  );
 
   return {connect, loading, error};
 };
