@@ -27,6 +27,7 @@ npm add @incirlabs/react-ethooks
 | useAccount       | Get address (or more in future) of the connected account               |
 | useConnect       | Connect to metamask or other wallets                                   |
 | useContract      | Create new contract reference with provided address and ABI            |
+| useContractEvent | Listen for events                                                      |
 | useContractRead  | Run read-only functions and get result                                 |
 | useContractWrite | Send state changing transactions to the contract and listen for events |
 | useERC20         | Helpers to get started working with erc-20 tokens                      |
