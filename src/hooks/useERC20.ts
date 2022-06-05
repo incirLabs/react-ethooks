@@ -2,7 +2,7 @@ import {useCallback} from 'react';
 import useContract from './useContract';
 import useContractRead from './useContractRead';
 import useContractWrite from './useContractWrite';
-import ERC20ABI from '../abis/ERC20.json';
+import ERC20ABI from '../abis/ERC20';
 
 const useERC20 = (tokenAddress: string) => {
   const contract = useContract(tokenAddress, ERC20ABI, true);
