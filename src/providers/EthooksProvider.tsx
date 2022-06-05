@@ -3,7 +3,7 @@ import {EthersContext, RootContextProvider} from '../contexts';
 import useConenct from '../hooks/useConnect';
 
 export interface EthooksProviderProps
-  extends React.ComponentPropsWithoutRef<typeof RootContextProvider> {
+  extends Partial<React.ComponentPropsWithoutRef<typeof RootContextProvider>> {
   provider: EthersProvider;
   autoConnect?: boolean;
   chains?: Chain[];
@@ -36,7 +36,7 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
           signer: undefined,
           address: undefined,
           ...initialState,
-          chains: chains || initialState.chains || [],
+          chains: chains || initialState?.chains || [],
         }}
         {...props}
       >
