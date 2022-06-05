@@ -1,9 +1,9 @@
 import {useCallback, useState} from 'react';
-import {useEthers, useRootContext, useSetRootContext} from '../contexts';
+import {useProvider, useRootContext, useSetRootContext} from '../contexts';
 import AutoChangeChain from '../utils/AutoChangeChain';
 
 const useConnect = () => {
-  const provider = useEthers();
+  const provider = useProvider();
   const {chains} = useRootContext();
   const setRoot = useSetRootContext();
 

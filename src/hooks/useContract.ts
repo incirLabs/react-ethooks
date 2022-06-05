@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 import {useMemo} from 'react';
-import {useEthers, useRootContext} from '../contexts';
+import {useProvider, useRootContext} from '../contexts';
 
 const useContract = (
   contractAddress: string,
@@ -8,7 +8,7 @@ const useContract = (
   withSigner?: boolean,
 ): ethers.Contract => {
   const root = useRootContext();
-  const provider = useEthers();
+  const provider = useProvider();
 
   const contract = useMemo(() => {
     return new ethers.Contract(

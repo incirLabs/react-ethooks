@@ -32,6 +32,7 @@ npm add @incirlabs/react-ethooks
 | useContractWrite | Send state changing transactions to the contract and listen for events |
 | useERC20         | Helpers to get started working with erc-20 tokens                      |
 | useSigner        | Get connected signer (or more in future)                               |
+| useProvider      | Get the provider passed to the EthooksProvider component               |
 
 ## Scripts
 

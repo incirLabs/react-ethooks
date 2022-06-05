@@ -2,7 +2,7 @@ import {createContext, useContext} from 'react';
 
 export const EthersContext = createContext<EthersProvider | null>(null);
 
-export const useEthers = () => {
+export const useProvider = () => {
   const context = useContext(EthersContext);
 
   if (!context)
