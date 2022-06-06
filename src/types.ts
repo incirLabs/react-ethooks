@@ -5,7 +5,7 @@ export type ContractResult = {status: false; error: Error} | {status: true; data
 
 export type Args = Array<string | number>;
 
-export interface Chain {
+export type ChainObject = {
   chainId: number;
   rpcUrls: string[];
   chainName: string;
@@ -15,4 +15,16 @@ export interface Chain {
     decimals: 0 | 18;
   };
   blockExplorerUrls: string[];
-}
+};
+
+export type DefaultChainNames = 'mainnet' | 'ropsten' | 'rinkeby' | 'goerli' | 'kovan';
+
+export const DefaultChains: Record<DefaultChainNames, number> = {
+  mainnet: 1,
+  ropsten: 3,
+  rinkeby: 4,
+  goerli: 5,
+  kovan: 42,
+};
+
+export type Chain = ChainObject | DefaultChainNames;
