@@ -20,6 +20,6 @@
     "declaration": true,
     "outDir": "./"
   },
-  "include": ["src", "types.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["build"]
 }

@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import {EthersContext, RootContextProvider} from '../contexts';
 import useConenct from '../hooks/useConnect';
+import {Chain, EthersProvider} from '../types';
 
 export interface EthooksProviderProps
   extends Partial<React.ComponentPropsWithoutRef<typeof RootContextProvider>> {

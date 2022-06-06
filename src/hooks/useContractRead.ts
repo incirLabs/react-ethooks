@@ -1,5 +1,6 @@
 import {ethers} from 'ethers';
 import {useCallback} from 'react';
+import {Args, ContractResult} from '../types';
 
 const useContractRead = (contract: ethers.Contract, method: string, defaultArgs: Args = []) => {
   const read = useCallback(

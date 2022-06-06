@@ -1,5 +1,6 @@
 import {createContext, useCallback, useContext, useState} from 'react';
 import {ethers} from 'ethers';
+import {Chain} from '../types';
 
 export interface RootContextType {
   signer?: ethers.providers.JsonRpcSigner;

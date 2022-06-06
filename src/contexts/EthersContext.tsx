@@ -1,4 +1,5 @@
 import {createContext, useContext} from 'react';
+import {EthersProvider} from '../types';
 
 export const EthersContext = createContext<EthersProvider | null>(null);
 

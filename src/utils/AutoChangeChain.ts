@@ -2,6 +2,7 @@
 
 import {ethers} from 'ethers';
 import {hexValue} from 'ethers/lib/utils';
+import {Chain} from '../types';
 
 const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?: Chain[]) => {
   await provider._networkPromise;

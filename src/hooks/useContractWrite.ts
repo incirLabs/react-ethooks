@@ -2,6 +2,7 @@ import {ethers} from 'ethers';
 import {useCallback} from 'react';
 import useConnect from './useConnect';
 import {useRootContext} from '../contexts';
+import {Args, ContractResult} from '../types';
 
 const useContractWrite = (contract: ethers.Contract, method: string, defaultArgs: Args = []) => {
   const root = useRootContext();
