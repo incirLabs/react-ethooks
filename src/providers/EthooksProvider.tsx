@@ -5,8 +5,22 @@ import {Chain, EthersProvider} from '../types';
 
 export interface EthooksProviderProps
   extends Partial<React.ComponentPropsWithoutRef<typeof RootContextProvider>> {
+  /**
+   * Ethers.js Provider to be used.
+   * Usually this is a Web3Provider with `window.ethereum` or `window.web3` object.
+   */
   provider: EthersProvider;
+
+  /**
+   * Whether to connect to the provider automatically on mount.
+   */
   autoConnect?: boolean;
+
+  /**
+   * Array with chain names or objects with chain information to connect and force to switch.
+   *
+   * You can either pass a string with the name of the chain for default chains (one of: mainnet, ropsten, rinkeby, goerli, kovan) or an object with the chain information.
+   */
   chains?: Chain[];
 }
 

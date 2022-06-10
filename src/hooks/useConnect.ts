@@ -2,7 +2,27 @@ import {useCallback, useState} from 'react';
 import {useProvider, useRootContext, useSetRootContext} from '../contexts';
 import AutoChangeChain from '../utils/AutoChangeChain';
 
-const useConnect = () => {
+const useConnect: () => {
+  /**
+   * Function to call when you want to connect
+   */
+  connect: (
+    /**
+     * Callback to call when there were any errors while connecting
+     */
+    onError?: ((error: Error) => unknown) | undefined,
+  ) => Promise<string>;
+
+  /**
+   * Whether the connection is in progress
+   */
+  loading: boolean;
+
+  /**
+   * Error object if there were any errors
+   */
+  error: Error | undefined;
+} = () => {
   const provider = useProvider();
   const {chains} = useRootContext();
   const setRoot = useSetRootContext();

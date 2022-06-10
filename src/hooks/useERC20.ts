@@ -1,10 +1,52 @@
 import {useCallback} from 'react';
+import {ethers} from 'ethers';
 import useContract from './useContract';
 import useContractRead from './useContractRead';
 import useContractWrite from './useContractWrite';
 import ERC20ABI from '../abis/ERC20';
+import {ContractResult} from '../types';
 
-const useERC20 = (tokenAddress: string) => {
+const useERC20 = (
+  /**
+   * Address of the ERC20 token contract
+   */
+  tokenAddress: string,
+): {
+  /**
+   * Contract object returned from useContract or ethers.Contract
+   */
+  contract: ethers.Contract;
+
+  /**
+   * Get the balance of the given account
+   */
+  getBalance: (address: string) => Promise<ContractResult>;
+
+  /**
+   * Get the allowance of the given owner and spender
+   */
+  getAllowance: (owner: string, spender: string) => Promise<ContractResult>;
+
+  /**
+   * Get the total supply of the token
+   */
+  getTotalSupply: () => Promise<ContractResult>;
+
+  /**
+   * Get the symbol of the token
+   */
+  getSymbol: () => Promise<ContractResult>;
+
+  /**
+   * Approve the given spender to spend the given amount of tokens
+   */
+  approve: (spender: string, amount: number | string) => Promise<ContractResult>;
+
+  /**
+   * Transfer the given amount of tokens to the recipient
+   */
+  transfer: (recipient: string, amount: number | string) => Promise<ContractResult>;
+} => {
   const contract = useContract(tokenAddress, ERC20ABI, true);
 
   const readBalance = useContractRead(contract, 'balanceOf', []);

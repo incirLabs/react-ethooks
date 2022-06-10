@@ -4,7 +4,32 @@ import useConnect from './useConnect';
 import {useRootContext} from '../contexts';
 import {Args, ContractResult} from '../types';
 
-const useContractWrite = (contract: ethers.Contract, method: string, defaultArgs: Args = []) => {
+const useContractWrite = (
+  /**
+   * Contract object returned from useContract or ethers.Contract
+   */
+  contract: ethers.Contract,
+
+  /**
+   * Contract function name
+   */
+  method: string,
+
+  /**
+   * Default Arguments to pass to the contract function
+   */
+  defaultArgs: Args = [],
+): ((
+  /**
+   * Arguments to pass to the contract function
+   */
+  args?: Args,
+
+  /**
+   * Event listeners
+   */
+  listeners?: Record<string, ethers.providers.Listener>,
+) => Promise<ContractResult>) => {
   const root = useRootContext();
 
   const {connect} = useConnect();
