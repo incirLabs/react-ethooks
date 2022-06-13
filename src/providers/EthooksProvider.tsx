@@ -1,3 +1,4 @@
+import {providers} from 'ethers';
 import {EthersContext, RootContextProvider} from '../contexts';
 import {useMount} from '../hooks/internal';
 import useConenct from '../hooks/useConnect';
@@ -8,8 +9,9 @@ export interface EthooksProviderProps
   /**
    * Ethers.js Provider to be used.
    * Usually this is a Web3Provider with `window.ethereum` or `window.web3` object.
+   * You SHOULD pass your own provider, however, we will create a Web3 provider for you if you don't.
    */
-  provider: EthersProvider;
+  provider?: EthersProvider;
 
   /**
    * Whether to connect to the provider automatically on mount.
@@ -38,7 +40,7 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   children,
   chains,
   initialState,
-  provider,
+  provider = new providers.Web3Provider((window as any).ethereum, 'any'),
   autoConnect,
   ...props
 }) => {
