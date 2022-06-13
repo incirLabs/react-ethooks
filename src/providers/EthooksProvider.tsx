@@ -1,5 +1,5 @@
-import {useEffect} from 'react';
 import {EthersContext, RootContextProvider} from '../contexts';
+import {useMount} from '../hooks/internal';
 import useConenct from '../hooks/useConnect';
 import {Chain, EthersProvider} from '../types';
 
@@ -27,11 +27,9 @@ export interface EthooksProviderProps
 const AutoConnector: React.FC = () => {
   const {connect} = useConenct();
 
-  useEffect(() => {
+  useMount(() => {
     connect();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   return null;
 };
