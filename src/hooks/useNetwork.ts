@@ -26,7 +26,7 @@ const useNetwork = (
   ) => void,
 ) => {
   const provider = useProvider();
-  const [currentNetwork, setCurrentNetwork] = useState<any>();
+  const [currentNetwork, setCurrentNetwork] = useState<providers.Network | null>(null);
 
   useEffect(() => {
     const listener = (newNetwork: providers.Network, oldNetwork: providers.Network) => {
