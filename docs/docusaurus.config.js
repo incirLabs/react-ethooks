@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const Name = 'React Ethooks';
 const GithubUrl = 'https://github.com/incirLabs/react-ethooks';
-const NpmUrl = 'https://www.npmjs.com/package/react-ethooks';
+const NpmUrl = 'https://www.npmjs.com/package/@incirlabs/react-ethooks';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
