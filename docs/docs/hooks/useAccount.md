@@ -1,4 +1,4 @@
-Returns the address of the currently connected account
+Returns the address of the currently connected account as string.
 
 ```jsx
 import {useAccount} from '@incirlabs/react-ethooks';
