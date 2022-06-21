@@ -1,6 +1,6 @@
 ---
-id: installation
-title: Installation
+id: Getting Started
+title: Getting Started
 sidebar_position: 1
 slug: /
 ---
@@ -13,8 +13,10 @@ import TabItem from '@theme/TabItem';
 React Ethooks can be installed to any React project using any npm package manager.
 
 :::caution
-  React Ethooks depends on ethers library. So you must also install ethers.js library.
+React Ethooks depends on ethers library. So you must also install ethers.js library.
 :::
+
+# Installation
 
 <Tabs>
   <TabItem value="yarn">
