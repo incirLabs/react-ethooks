@@ -2,8 +2,8 @@ You can use [useConnect](../hooks/useConnect.md) and [useAccount](../hooks/useAc
 
 ## Usage
 
-```bash
-import { useConnect, useAccount } from "@incirlabs/react-ethooks";
+```jsx
+import {useConnect, useAccount} from '@incirlabs/react-ethooks';
 
 const {connect, loading, error} = useConnect();
 const {address} = useAccount();
