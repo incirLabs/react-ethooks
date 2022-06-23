@@ -1,6 +1,6 @@
 In order to read contract function's outputs, you can use this hook. The hook takes three parameters; **contract** object from [useContract()](./useContract.md) or [ethers.Contract](https://docs.ethers.io/v5/api/contract/contract/#Contract), contract **method** as string and parameters of the contract function as array.
 
-It returns output of contract method.
+It returns output of contract method as a promise.
 
 ```jsx
 import {useContract} from '@incirlabs/react-ethooks';
