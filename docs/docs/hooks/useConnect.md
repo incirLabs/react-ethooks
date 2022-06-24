@@ -6,9 +6,7 @@ Returns an object with **connect**, **loading** and **error**.
 
 **error** is the last received Error object.
 
-```jsx
-import {useConnect} from '@incirlabs/react-ethooks';
-
+```js
 const {connect, loading, error} = useConnect();
 
 const address = await connect();
@@ -16,6 +14,6 @@ const address = await connect();
 
 You can also send a callback function to receive errors in connect function:
 
-```jsx
+```js
 const address = await connect((error) => console.log(error));
 ```

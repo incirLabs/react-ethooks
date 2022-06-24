@@ -1,6 +1,6 @@
 You can use this hook to run functions of a ERC20 token. It will automatically create contract and pass in the ERC20 abi.
 
-```jsx
+```js
 const {getBalance, transfer} = useERC20('0xContractAddress');
 
 const tokenBalance = await getBalance('0xAddress');

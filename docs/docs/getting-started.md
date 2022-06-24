@@ -56,7 +56,7 @@ export default function Main() {
 
 We can now connect to a wallet and use it to sign transactions.
 
-```jsx
+```js
 const {connect, loading, error} = useConnect();
 
 const connectToWallet = async () => {

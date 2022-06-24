@@ -4,6 +4,6 @@ Returns undefined if there is no currently connected account.
 
 You can also use this hook to validate if a wallet and account is connected.
 
-```jsx
+```js
 const {address} = useAccount();
 ```
