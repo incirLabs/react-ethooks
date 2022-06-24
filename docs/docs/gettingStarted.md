@@ -38,4 +38,20 @@ npm install --save @incirlabs/react-ethooks ethers
 
 You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
 
+# Quick Start
+
+Wrap your root component in `EthooksProvider` from `@incirlabs/react-ethooks` package and pass your provider.
+
+In this case, we are using `Web3Provider` from `ethers` library.
+
+```jsx
+export default function Main() {
+  return (
+    <EthooksProvider provider={new ethers.providers.Web3Provider(window.ethereum)}>
+      <App />
+    </EthooksProvider>
+  );
+}
+```
+
 That's all! You can now use React Ethooks in your React project.
