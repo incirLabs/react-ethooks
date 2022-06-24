@@ -14,9 +14,9 @@ const transfer = await token.transfer(recipient, amount);
 
 You can see full list of methods, all of them return ContractResult as a promise:
 
-- token.getBalance(address)
-- token.getAllowance(owner, spender)
-- token.getTotalSupply()
-- token.getSymbol
-- token.approve(spender, amount)
-- token.transfer(recipient, amount)
+- getBalance(address)
+- getAllowance(owner, spender)
+- getTotalSupply()
+- getSymbol()
+- approve(spender, amount)
+- transfer(recipient, amount)
