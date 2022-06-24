@@ -54,4 +54,14 @@ export default function Main() {
 }
 ```
 
+We can now connect to a wallet and use it to sign transactions.
+
+```jsx
+const {connect, loading, error} = useConnect();
+
+const connectToWallet = async () => {
+  const address = await connect();
+};
+```
+
 That's all! You can now use React Ethooks in your React project.
