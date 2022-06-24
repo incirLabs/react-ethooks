@@ -1,22 +1,64 @@
-In order to use ERC20 methods you can use this hook. It takes token's contract address as a parameter.
+You can use this hook to run functions of a ERC20 token. It will automatically create contract and pass in the ERC20 abi.
 
 ```jsx
-import {useERC20} from '@incirlabs/react-ethooks';
+const {getBalance, transfer} = useERC20('0xContractAddress');
 
-const token = useERC20('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2');
-const tokenBalance = await token.getBalance('0xF10800EBEDB078CFA60d2ede8f246dE866E3de43');
+const tokenBalance = await getBalance('0xAddress');
 
-const recipient = '0xF10800EBEDB078CFA60d2ede8f246dE866E3de43';
-const amount = 1234567890987654321;
-
-const transfer = await token.transfer(recipient, amount);
+const transfer = await transfer('0xAddress', 100);
 ```
 
-You can see full list of methods, all of them return ContractResult as a promise:
+These are the full list of functions in the useERC20 hook:
 
-- getBalance(address)
-- getAllowance(owner, spender)
-- getTotalSupply()
-- getSymbol()
-- approve(spender, amount)
-- transfer(recipient, amount)
+- [getBalance(address)](#getbalance)
+- [getAllowance(owner, spender)](#getallowance)
+- [getTotalSupply()](#gettotalsupply)
+- [getSymbol()](#getsymbol)
+- [approve(spender, amount)](#approve)
+- [transfer(recipient, amount)](#transfer)
+
+## Returns
+
+It returns an object with th following:
+
+### contract
+
+[useContract](./useContract) instance
+
+### getBalance
+
+Returns the balance of the **address**.
+
+**address**: Address to get the balance of.
+
+### getAllowance
+
+Returns the allowance of the **owner** and **spender**
+
+**owner**: Owner address
+
+**spender**: Spender address
+
+### getTotalSupply
+
+Returns the total supply of the token
+
+### getSymbol
+
+Returns the symbol of the token
+
+### approve
+
+Approves the **spender** to spend the **amount** of tokens
+
+**spender**: Spender address
+
+**amount**: Amount of tokens to approve
+
+### transfer
+
+Transfers the **amount** of tokens to the **recipient**
+
+**amount**: Amount of tokens to approve
+
+**recipient**: Recipient address
