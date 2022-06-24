@@ -1,10 +1,15 @@
-This hook takes 3 inputs; contractAddress as a string, contractInterface as ethers.ContractInterface, withSigner if use Signer or Provider(default is false, without Signer) as boolean.
+You can use this hook to create a contract instance. You will most likely not use this hook on it's own. It's intended to be used with other hooks like [useContractWrite](./useContractWrite.md) or [useContractRead](./useContractRead.md).
 
-Returns **contract** as [Contract](https://github.com/ethers-io/ethers.js/blob/master/packages/contracts/src.ts/index.ts#L1140) Class from [ethers](https://docs.ethers.io/v5/api/contract/contract/#Contract).
+Takes 3 parameters; **address of the contract**, [**contract abi**](https://docs.ethers.io/v5/api/utils/abi/) and **withSigner**.
 
-```jsx
-import {useContract} from '@incirlabs/react-ethooks';
-import {contractAddress, contractABI} from 'somewhere';
+Returns [Contract Class](https://docs.ethers.io/v5/api/contract/contract/#Contract) from ethers.
 
-const contract = useContract(contractAddress, contractABI);
+```js
+const contract = useContract('0xContractAddress', ContractABI);
+```
+
+You can optionally pass a boolean as the third parameter to set whether to use the signer or the provider.
+
+```js
+const contract = useContract('0xContractAddress', ContractABI, true);
 ```
