@@ -1,7 +1,6 @@
-Returns the address of the currently connected account as string.
+Returns the address of the currently connected account.
 
-```jsx
-import {useAccount} from '@incirlabs/react-ethooks';
+Returns undefined if there is no currently connected account.
 
 const {address} = useAccount();
 ```
