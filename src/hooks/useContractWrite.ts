@@ -3,7 +3,7 @@ import {useCallback} from 'react';
 import useConnect from './useConnect';
 import {useRootContext} from '../contexts';
 import {EMPTY_ARRAY} from '../utils/Constants';
-import {Args, ContractResult} from '../types';
+import {Args, ContractResult, JsonRpcError} from '../types';
 
 const useContractWrite = (
   /**
@@ -56,7 +56,7 @@ const useContractWrite = (
 
         return {status: true, data: result};
       } catch (err) {
-        return {status: false, error: err as Error};
+        return {status: false, error: err as JsonRpcError};
       }
     },
     [contract, method, defaultArgs, connect, root.signer],

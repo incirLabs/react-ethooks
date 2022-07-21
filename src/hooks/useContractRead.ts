@@ -1,7 +1,7 @@
 import {ethers} from 'ethers';
 import {useCallback} from 'react';
 import {EMPTY_ARRAY} from '../utils/Constants';
-import {Args, ContractResult} from '../types';
+import {Args, ContractResult, JsonRpcError} from '../types';
 
 const useContractRead = (
   /**
@@ -32,7 +32,7 @@ const useContractRead = (
           data: await contract[method](...args),
         };
       } catch (err) {
-        return {status: false, error: err as Error};
+        return {status: false, error: err as JsonRpcError};
       }
     },
     [contract, method, defaultArgs],
