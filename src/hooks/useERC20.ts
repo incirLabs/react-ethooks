@@ -49,13 +49,13 @@ const useERC20 = (
 } => {
   const contract = useContract(tokenAddress, ERC20ABI, true);
 
-  const readBalance = useContractRead(contract, 'balanceOf', []);
-  const readAllowance = useContractRead(contract, 'allowance', []);
-  const readTotalSupply = useContractRead(contract, 'totalSupply', []);
-  const readSymbol = useContractRead(contract, 'symbol', []);
+  const readBalance = useContractRead(contract, 'balanceOf');
+  const readAllowance = useContractRead(contract, 'allowance');
+  const readTotalSupply = useContractRead(contract, 'totalSupply');
+  const readSymbol = useContractRead(contract, 'symbol');
 
-  const writeApprove = useContractWrite(contract, 'approve', []);
-  const writeTransfer = useContractWrite(contract, 'transfer', []);
+  const writeApprove = useContractWrite(contract, 'approve');
+  const writeTransfer = useContractWrite(contract, 'transfer');
 
   const getBalance = useCallback(
     (address: string) => {

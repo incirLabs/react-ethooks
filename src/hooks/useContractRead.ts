@@ -1,5 +1,6 @@
 import {ethers} from 'ethers';
 import {useCallback} from 'react';
+import {EMPTY_ARRAY} from '../utils/Constants';
 import {Args, ContractResult} from '../types';
 
 const useContractRead = (
@@ -16,7 +17,7 @@ const useContractRead = (
   /**
    * Default Arguments to pass to the contract function
    */
-  defaultArgs: Args = [],
+  defaultArgs: Args = EMPTY_ARRAY,
 ): ((
   /**
    * Arguments to pass to the contract function

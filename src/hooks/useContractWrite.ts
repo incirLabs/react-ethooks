@@ -2,6 +2,7 @@ import {ethers} from 'ethers';
 import {useCallback} from 'react';
 import useConnect from './useConnect';
 import {useRootContext} from '../contexts';
+import {EMPTY_ARRAY} from '../utils/Constants';
 import {Args, ContractResult} from '../types';
 
 const useContractWrite = (
@@ -18,7 +19,7 @@ const useContractWrite = (
   /**
    * Default Arguments to pass to the contract function
    */
-  defaultArgs: Args = [],
+  defaultArgs: Args = EMPTY_ARRAY,
 ): ((
   /**
    * Arguments to pass to the contract function
