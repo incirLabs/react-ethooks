@@ -49,3 +49,6 @@ export const DefaultChains: Record<DefaultChainNames, number> = {
 };
 
 export type Chain = ChainObject | DefaultChainNames;
+
+export type UnitNames = 'wei' | 'kwei' | 'mwei' | 'gwei' | 'szabo' | 'finney' | 'ether';
+export type FormatUnitsName = number | UnitNames;
