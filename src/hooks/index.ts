@@ -7,5 +7,6 @@ export {default as useContractEvent} from './useContractEvent';
 export {default as useContractRead} from './useContractRead';
 export {default as useContractWrite} from './useContractWrite';
 export {default as useERC20} from './useERC20';
+export {default as useERC20Balance} from './useERC20Balance';
 export {default as useNetwork} from './useNetwork';
 export {default as useSigner} from './useSigner';
