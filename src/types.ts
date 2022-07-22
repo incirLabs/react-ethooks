@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    ethereum: import('ethers').providers.ExternalProvider;
+  }
+}
+
 export type EthersProvider = import('ethers').providers.Web3Provider;
 
 export interface JsonRpcError extends Error {

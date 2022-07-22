@@ -40,8 +40,7 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   children,
   chains,
   initialState,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  provider = new providers.Web3Provider((window as any).ethereum, 'any'),
+  provider = new providers.Web3Provider(window.ethereum, 'any'),
   autoConnect,
   ...props
 }) => {
