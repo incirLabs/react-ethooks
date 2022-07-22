@@ -1,5 +1,7 @@
 import {providers} from 'ethers';
+import {useCallback} from 'react';
 import {EthersContext, RootContextProvider} from '../contexts';
+import {useAccountChange} from '../hooks';
 import {useMount} from '../hooks/internal';
 import useConenct from '../hooks/useConnect';
 import {Chain, EthersProvider} from '../types';
@@ -36,6 +38,18 @@ const AutoConnector: React.FC = () => {
   return null;
 };
 
+const EthooksEventListeners: React.FC = () => {
+  const {connect} = useConenct();
+
+  const onAccountChange = useCallback(() => {
+    connect();
+  }, [connect]);
+
+  useAccountChange(onAccountChange);
+
+  return null;
+};
+
 export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   children,
   chains,
@@ -56,6 +70,8 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
         {...props}
       >
         {children}
+
+        <EthooksEventListeners />
 
         {autoConnect ? <AutoConnector /> : null}
       </RootContextProvider>
