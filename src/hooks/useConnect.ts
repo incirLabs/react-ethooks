@@ -49,7 +49,12 @@ const useConnect: () => {
       const signer = provider.getSigner();
       const address = await signer.getAddress();
 
+      provider.lookupAddress(address).then((ensName) => {
+        if (ensName !== null) setRoot({ensName});
+      });
+
       setRoot({signer, address});
+
       return address;
     },
     [provider, chains, setRoot],

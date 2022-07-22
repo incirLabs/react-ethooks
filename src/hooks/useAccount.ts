@@ -10,8 +10,9 @@ const useAccount = () => {
   return useMemo(
     () => ({
       address: root.address,
+      ensName: root.ensName,
     }),
-    [root.address],
+    [root.address, root.ensName],
   );
 };
 
