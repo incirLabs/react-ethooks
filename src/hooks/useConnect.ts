@@ -41,7 +41,7 @@ const useConnect: () => {
         await provider.send('eth_requestAccounts', []);
       } catch (err) {
         setError(err as Error);
-        onError?.(err as Error);
+        if (typeof onError === 'function') onError(err as Error);
       } finally {
         setLoading(false);
       }
