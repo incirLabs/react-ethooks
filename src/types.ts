@@ -6,6 +6,14 @@ declare global {
 
 export type EthersProvider = import('ethers').providers.Web3Provider;
 
+export type ExternalProviderWithEvents = import('ethers').providers.ExternalProvider & {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  on?: (event: string, callback: (...args: any[]) => void) => void;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  off?: (event: string, callback: (...args: any[]) => void) => void;
+};
+
 export interface JsonRpcError extends Error {
   code: number;
   message: string;
