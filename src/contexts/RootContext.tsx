@@ -5,6 +5,7 @@ import {Chain} from '../types';
 export interface RootContextType {
   signer?: ethers.providers.JsonRpcSigner;
   address?: string;
+  ensName?: string;
   chains: Chain[];
 }
 

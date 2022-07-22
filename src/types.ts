@@ -1,4 +1,18 @@
+declare global {
+  interface Window {
+    ethereum: import('ethers').providers.ExternalProvider;
+  }
+}
+
 export type EthersProvider = import('ethers').providers.Web3Provider;
+
+export type ExternalProviderWithEvents = import('ethers').providers.ExternalProvider & {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  on?: (event: string, callback: (...args: any[]) => void) => void;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  off?: (event: string, callback: (...args: any[]) => void) => void;
+};
 
 export interface JsonRpcError extends Error {
   code: number;
@@ -35,3 +49,6 @@ export const DefaultChains: Record<DefaultChainNames, number> = {
 };
 
 export type Chain = ChainObject | DefaultChainNames;
+
+export type UnitNames = 'wei' | 'kwei' | 'mwei' | 'gwei' | 'szabo' | 'finney' | 'ether';
+export type FormatUnitsName = number | UnitNames;

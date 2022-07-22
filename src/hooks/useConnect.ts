@@ -41,7 +41,7 @@ const useConnect: () => {
         await provider.send('eth_requestAccounts', []);
       } catch (err) {
         setError(err as Error);
-        onError?.(err as Error);
+        if (typeof onError === 'function') onError(err as Error);
       } finally {
         setLoading(false);
       }
@@ -49,7 +49,12 @@ const useConnect: () => {
       const signer = provider.getSigner();
       const address = await signer.getAddress();
 
+      provider.lookupAddress(address).then((ensName) => {
+        if (ensName !== null) setRoot({ensName});
+      });
+
       setRoot({signer, address});
+
       return address;
     },
     [provider, chains, setRoot],
