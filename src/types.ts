@@ -4,6 +4,8 @@ declare global {
   }
 }
 
+export type LooseAutoComplete<T extends string> = T | Omit<string, T>;
+
 export type EthersProvider = import('ethers').providers.Web3Provider;
 
 export type ExternalProviderWithEvents = import('ethers').providers.ExternalProvider & {
@@ -52,3 +54,25 @@ export type Chain = ChainObject | DefaultChainNames;
 
 export type UnitNames = 'wei' | 'kwei' | 'mwei' | 'gwei' | 'szabo' | 'finney' | 'ether';
 export type FormatUnitsName = number | UnitNames;
+
+export type EIP634GlobalKeys =
+  | 'avatar'
+  | 'description'
+  | 'display'
+  | 'email'
+  | 'keywords'
+  | 'mail'
+  | 'notice'
+  | 'location'
+  | 'phone'
+  | 'url';
+
+export type EIP634ServiceKeys =
+  | 'com.github'
+  | 'com.peepeth'
+  | 'com.linkedin'
+  | 'com.twitter'
+  | 'io.keybase'
+  | 'org.telegram';
+
+export type EIP634Keys = LooseAutoComplete<EIP634GlobalKeys | EIP634ServiceKeys>;
