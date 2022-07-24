@@ -6,7 +6,8 @@ import {FormatUnitsName} from '../types';
 
 /**
  * Returns the balance of the currently connected account or the given address.
- * Note: If format is **provided**, this hook will return the balance as a `string`. If not provided, it will return `BigNumber`.
+ *
+ * NOTE: If format is **provided**, this hook will return the balance as a `string`. If not provided, it will return `BigNumber`.
  *
  * @param address - Address to get the balance of. If not given, currently connected account is used.
  * @param format - Unit name or decimal to format the balance with. If not given, no formatting is applied.

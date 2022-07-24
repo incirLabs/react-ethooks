@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 
 const useContractEvent = (
   /**
-   * Contract object returned from useContract or ethers.Contract
+   * Contract instance returned from useContract or ethers.Contract
    */
   contract: ethers.Contract,
 

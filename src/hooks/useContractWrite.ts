@@ -7,7 +7,7 @@ import {Args, ContractResult, JsonRpcError} from '../types';
 
 const useContractWrite = (
   /**
-   * Contract object returned from useContract or ethers.Contract
+   * Contract instance returned from useContract or ethers.Contract
    */
   contract: ethers.Contract,
 
