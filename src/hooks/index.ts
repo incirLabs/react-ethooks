@@ -9,6 +9,7 @@ export {default as useContractWrite} from './useContractWrite';
 export {default as useEnsAddress} from './useEnsAddress';
 export {default as useEnsName} from './useEnsName';
 export {default as useEnsResolver} from './useEnsResolver';
+export {default as useEnsText} from './useEnsText';
 export {default as useERC20} from './useERC20';
 export {default as useERC20Balance} from './useERC20Balance';
 export {default as useNetwork} from './useNetwork';
