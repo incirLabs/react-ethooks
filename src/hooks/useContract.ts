@@ -21,13 +21,11 @@ const useContract = (
   const root = useRootContext();
   const provider = useProvider();
 
+  const signerOrProvider = withSigner ? root.signer : provider;
+
   const contract = useMemo(() => {
-    return new ethers.Contract(
-      contractAddress,
-      contractInterface,
-      withSigner ? root.signer : provider,
-    );
-  }, [contractAddress, withSigner, provider, contractInterface, root.signer]);
+    return new ethers.Contract(contractAddress, contractInterface, signerOrProvider);
+  }, [contractAddress, contractInterface, signerOrProvider]);
 
   return contract;
 };
