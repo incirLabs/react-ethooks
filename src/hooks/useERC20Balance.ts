@@ -11,6 +11,7 @@ import {FormatUnitsName} from '../types';
  *
  * @param contract - Contract instance for the ERC20 token.
  * @param address - Address to get the balance of. If not given, currently connected account is used.
+ * @param format - Unit name or decimal to format the balance with. If not given, no formatting is applied.
  */
 const useERC20Balance = <T extends FormatUnitsName | undefined = undefined>(
   contract: Contract,
