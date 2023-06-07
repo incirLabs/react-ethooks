@@ -22,17 +22,25 @@ npm add @incirlabs/react-ethooks
 
 ## Hooks
 
-| Hook             | Description                                                            |
-| ---------------- | ---------------------------------------------------------------------- |
-| useAccount       | Get address (or more in future) of the connected account               |
-| useConnect       | Connect to metamask or other wallets                                   |
-| useContract      | Create new contract reference with provided address and ABI            |
-| useContractEvent | Listen for events                                                      |
-| useContractRead  | Run read-only functions and get result                                 |
-| useContractWrite | Send state changing transactions to the contract and listen for events |
-| useERC20         | Helpers to get started working with erc-20 tokens                      |
-| useSigner        | Get connected signer (or more in future)                               |
-| useProvider      | Get the provider passed to the EthooksProvider component               |
+| Hook             | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| useAccount       | Get address (or more in future) of the connected account                              |
+| useAccountChange | Listen for connected account change event                                             |
+| useBalance       | Returns the balance of the currently connected or the given address                   |
+| useConnect       | Connect to metamask or other wallets                                                  |
+| useContract      | Create new contract reference with provided address and ABI                           |
+| useContractEvent | Listen for contract events                                                            |
+| useContractRead  | Run read-only functions and get result                                                |
+| useContractWrite | Send state changing transactions to the contract and listen for events                |
+| useEnsAddress    | Returns the address of the given ENS name                                             |
+| useEnsName       | Returns the ENS name of the given address                                             |
+| useEnsResolver   | Returns an EnsResolver instance                                                       |
+| useEnsText       | Returns the stored EIP-634 text entry for the given key                               |
+| useERC20         | Helpers to get started working with erc-20 tokens                                     |
+| useERC20Balance  | Returns the balance of the currently connected or the given address for erc-20 tokens |
+| useNetwork       | Returns the current network                                                           |
+| useSigner        | Get connected signer (or more in future)                                              |
+| useProvider      | Get the provider passed to the EthooksProvider component                              |
 
 ## Scripts
 

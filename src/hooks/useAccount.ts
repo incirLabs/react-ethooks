@@ -2,7 +2,7 @@ import {useMemo} from 'react';
 import {useRootContext} from '../contexts';
 
 /**
- * Returns the address of the currently connected account
+ * Returns the address and ensName of the currently connected account
  */
 const useAccount = () => {
   const root = useRootContext();

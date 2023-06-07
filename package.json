@@ -33,9 +33,11 @@
     "rollup-build": "rollup -c",
     "clean-build": "rimraf dist",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "format:check": "prettier -c \"src/**/*.{ts,tsx}\"",
     "lint": "yarn lint:check --fix",
+    "format:check": "prettier -c \"src/**/*.{ts,tsx}\"",
     "lint:check": "eslint \"src/**/*.{ts,tsx}\"",
+    "ts:check": "tsc --noEmit",
+    "check": "yarn format && yarn format:check && yarn lint:check && yarn ts:check",
     "semantic-release": "semantic-release",
     "cz": "git-cz"
   },
