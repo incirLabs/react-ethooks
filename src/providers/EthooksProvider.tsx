@@ -1,5 +1,5 @@
+import {useCallback, useMemo} from 'react';
 import {providers} from 'ethers';
-import {useCallback} from 'react';
 import {EthersContext, RootContextProvider} from '../contexts';
 import {useAccountChange} from '../hooks';
 import {useMount} from '../hooks/internal';
@@ -54,12 +54,23 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   children,
   chains,
   initialState,
-  provider = new providers.Web3Provider(window.ethereum, 'any'),
+  provider,
   autoConnect,
   ...props
 }) => {
+  if (!provider) {
+    console.warn(
+      "WARNING: You didn't pass a provider to EthooksProvider. EthooksProvider will create a Web3 Provider for you, but you should pass your own provider.",
+    );
+  }
+
+  const defaultProvider = useMemo(() => {
+    if ('ethereum' in window) return new providers.Web3Provider(window.ethereum, 'any');
+    return null;
+  }, []);
+
   return (
-    <EthersContext.Provider value={provider}>
+    <EthersContext.Provider value={provider || defaultProvider}>
       <RootContextProvider
         initialState={{
           signer: undefined,
