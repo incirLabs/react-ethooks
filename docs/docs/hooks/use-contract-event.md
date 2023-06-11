@@ -1,7 +1,7 @@
 ---
 id: use-contract-event
 title: useContractEvent
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 Listens to events emitted by a contract.

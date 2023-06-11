@@ -1,7 +1,7 @@
 ---
 id: use-network
 title: useNetwork
-sidebar_position: 16
+sidebar_position: 17
 ---
 
 Returns the current network. You can also pass a callback to be run when the network changes.

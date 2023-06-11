@@ -1,7 +1,7 @@
 ---
 id: use-ens-address
 title: useEnsAddress
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 Returns the address of the given ENS name.

@@ -1,7 +1,7 @@
 ---
 id: use-account-change
 title: useAccountChange
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 Hook to listen for the accounts change event.

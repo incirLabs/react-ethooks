@@ -1,7 +1,7 @@
 ---
 id: use-contract
 title: useContract
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 Returns an [`ethers.Contract`](https://docs.ethers.org/v5/api/contract/contract/) instance.

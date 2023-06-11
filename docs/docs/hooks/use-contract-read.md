@@ -1,7 +1,7 @@
 ---
 id: use-contract-read
 title: useContractRead
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 Returns a function to execute a view function on a contract.

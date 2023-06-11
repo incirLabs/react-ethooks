@@ -1,7 +1,7 @@
 ---
 id: use-ens-resolver
 title: useEnsResolver
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 Returns an [EnsResolver](https://docs.ethers.org/v5/api/providers/provider/#EnsResolver) instance which can be used to further inquire about specific entries for an ENS name.

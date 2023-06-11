@@ -1,7 +1,7 @@
 ---
 id: use-account
 title: useAccount
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 Returns the `address` and `ensName` of the currently connected account

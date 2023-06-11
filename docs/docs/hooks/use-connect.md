@@ -1,7 +1,7 @@
 ---
 id: use-connect
 title: useConnect
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 Used to connect to the wallet.

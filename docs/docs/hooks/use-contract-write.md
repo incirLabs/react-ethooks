@@ -1,7 +1,7 @@
 ---
 id: use-contract-write
 title: useContractWrite
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 Returns a function to execute a state mutating function on a contract.

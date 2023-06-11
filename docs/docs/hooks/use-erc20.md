@@ -1,7 +1,7 @@
 ---
 id: use-erc20
 title: useERC20
-sidebar_position: 14
+sidebar_position: 15
 ---
 
 Returns a ERC20 Contract instance and a bunch of other useful functions from contract address.

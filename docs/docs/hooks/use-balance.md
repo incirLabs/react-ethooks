@@ -1,7 +1,7 @@
 ---
 id: use-balance
 title: useBalance
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 Returns the **balance** of the currently **connected account** or the **given address**.

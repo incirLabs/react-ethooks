@@ -1,7 +1,7 @@
 ---
 id: use-erc20-balance
 title: useERC20Balance
-sidebar_position: 15
+sidebar_position: 16
 ---
 
 Returns the **balance** of the currently **connected account** or the **given address** for the ERC20 token.

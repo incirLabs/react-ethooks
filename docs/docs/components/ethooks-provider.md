@@ -46,9 +46,9 @@ export default function Main() {
 
 The `provider` is the provider that will be used to interact with Ethereum.
 
-| Type   | Default  |
-| ------ | -------- |
-| string | Required |
+| Type                                                           | Default  |
+| -------------------------------------------------------------- | -------- |
+| [Provider](https://docs.ethers.org/v5/api/providers/provider/) | Required |
 
 ### chains
 

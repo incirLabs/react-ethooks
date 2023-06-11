@@ -1,7 +1,7 @@
 ---
 id: use-ens-text
 title: useEnsText
-sidebar_position: 13
+sidebar_position: 14
 ---
 
 Returns the stored EIP-634 text (or any other non-standard text) entry for the given text key.
