@@ -7,7 +7,7 @@ sidebar_position: 6
 Returns an [`ethers.Contract`](https://docs.ethers.org/v5/api/contract/contract/) instance.
 
 :::info
-Only difference from using the `ethers.Contract` is that this hook will automatically inject `provider` or `signer`.
+Only difference from using the `ethers.Contract` is that this hook will automatically connect `provider` or `signer` to Contract instance.
 So, instead of using this hook, you can also choose to use `ethers.Contract` directly and pass the `provider` or `signer` yourself.
 :::
 
@@ -43,13 +43,13 @@ Address of the contract to interact with.
 
 ### withSigner
 
-Whether to inject `signer` or `provider` into the contract instance.
+Whether to connect `signer` or `provider` into the contract instance.
 
-If `true`, `signer` will be injected. If `false`, `provider` will be injected.
+If `true`, `signer` will be connected. If `false`, `provider` will be connected.
 
-If you do not inject `signer`, you can not send transactions with it, but you can still call `view` functions.
+If you do not connect `signer`, you can not send transactions with it, but you can still call `view` functions.
 
-**However, this is not the case if you pass this contract instance to [useContractWrite](use-contract-write) hook, since it will automatically inject `signer` in any case.**
+**However, this is not the case if you pass this contract instance to [useContractWrite](use-contract-write) hook, since it will automatically connect `signer` in any case.**
 
 | Type    | Default |
 | ------- | ------- |
