@@ -52,13 +52,13 @@ The `provider` is the provider that will be used to interact with Ethereum.
 
 ### chains
 
-The `chains` is an array of chain names or `ChainObject` that will be allowed to connect to.
+The `chains` is an array of [chain names or `ChainObject`](../types#chain) that will be allowed to connect to.
 
 If `chains` is not provided, it will allow all chains.
 
-| Type                                                                             | Default   |
-| -------------------------------------------------------------------------------- | --------- |
-| Array<'mainnet' \| 'ropsten' \| 'rinkeby' \| 'goerli' \| 'kovan' \| ChainObject> | undefined |
+| Type                           | Default   |
+| ------------------------------ | --------- |
+| Array<[Chain](../types#chain)> | undefined |
 
 ### autoConnect
 
