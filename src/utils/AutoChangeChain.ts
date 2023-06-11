@@ -1,7 +1,6 @@
 /* eslint no-underscore-dangle: "off" */
 
-import {ethers} from 'ethers';
-import {hexValue} from 'ethers/lib/utils';
+import {ethers, utils} from 'ethers';
 import {Chain, ChainObject, DefaultChains, DefaultChainNames} from '../types';
 
 const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?: Chain[]) => {
@@ -22,7 +21,7 @@ const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?:
       if (defaultChains.length > 0) {
         await provider.send(
           'wallet_switchEthereumChain',
-          defaultChains.map((chain) => ({chainId: hexValue(DefaultChains[chain])})),
+          defaultChains.map((chain) => ({chainId: utils.hexValue(DefaultChains[chain])})),
         );
         return;
       }
@@ -33,7 +32,7 @@ const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?:
           .filter((chain): chain is ChainObject => typeof chain === 'object')
           .map((chain) => ({
             ...chain,
-            chainId: hexValue(chain.chainId),
+            chainId: utils.hexValue(chain.chainId),
           })),
       );
     }
