@@ -1,6 +1,6 @@
 import {useCallback, useMemo} from 'react';
 import {providers} from 'ethers';
-import {EthersContext, RootContextProvider} from '../contexts';
+import {EthersContext, RootContextProvider, BlockNumberProvider} from '../contexts';
 import {useAccountChange} from '../hooks';
 import {useMount} from '../hooks/internal';
 import useConnect from '../hooks/useConnect';
@@ -80,7 +80,7 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
         }}
         {...props}
       >
-        {children}
+        <BlockNumberProvider>{children}</BlockNumberProvider>
 
         <EthooksEventListeners />
 
