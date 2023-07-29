@@ -1,3 +1,5 @@
+import type {BigNumberish, providers} from 'ethers';
+
 declare global {
   interface Window {
     ethereum: import('ethers').providers.ExternalProvider;
@@ -26,7 +28,7 @@ export interface JsonRpcError extends Error {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ContractResult = {status: false; error: JsonRpcError} | {status: true; data: any};
 
-export type Args = Array<string | number>;
+export type Args = [...Array<BigNumberish>, BigNumberish | providers.TransactionRequest];
 
 export type ChainObject = {
   chainId: number;
