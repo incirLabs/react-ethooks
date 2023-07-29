@@ -1,40 +1,47 @@
 /* eslint no-underscore-dangle: "off" */
 
 import {ethers, utils} from 'ethers';
-import {Chain, ChainObject, DefaultChains, DefaultChainNames} from '../types';
+import {Chain, ChainObject, DefaultChains} from '../types';
 
 const AutoChangeChain = async (provider: ethers.providers.Web3Provider, chains?: Chain[]) => {
   await provider._networkPromise;
 
-  if (Array.isArray(chains) && chains.length > 0) {
-    const foundIndex = chains.findIndex(
-      (chain) =>
-        (typeof chain === 'object' && chain.chainId === provider.network.chainId) ||
-        (typeof chain === 'string' && DefaultChains[chain] === provider.network.chainId),
-    );
+  if (!provider.network.chainId || !Array.isArray(chains) || chains.length === 0) return;
 
-    if (foundIndex === -1) {
-      const defaultChains = chains.filter(
-        (chain): chain is DefaultChainNames => typeof chain === 'string',
-      );
+  const providerNetwork = utils.hexValue(provider.network.chainId);
 
-      if (defaultChains.length > 0) {
+  const foundIndex = chains.findIndex(
+    (chain) =>
+      (typeof chain === 'object' && utils.hexValue(chain.chainId) === providerNetwork) ||
+      (typeof chain === 'string' && utils.hexValue(DefaultChains[chain]) === providerNetwork),
+  );
+
+  if (foundIndex === -1) {
+    try {
+      try {
+        // Try to switch
         await provider.send(
           'wallet_switchEthereumChain',
-          defaultChains.map((chain) => ({chainId: utils.hexValue(DefaultChains[chain])})),
-        );
-        return;
-      }
-
-      await provider.send(
-        'wallet_addEthereumChain',
-        chains
-          .filter((chain): chain is ChainObject => typeof chain === 'object')
-          .map((chain) => ({
-            ...chain,
-            chainId: utils.hexValue(chain.chainId),
+          chains.map((chain) => ({
+            chainId: utils.hexValue(
+              typeof chain === 'string' ? DefaultChains[chain] : chain.chainId,
+            ),
           })),
-      );
+        );
+      } catch (_) {
+        // Try to add if switch failed
+        await provider.send(
+          'wallet_addEthereumChain',
+          chains
+            .filter((chain): chain is ChainObject => typeof chain === 'object')
+            .map((chain) => ({
+              ...chain,
+              chainId: utils.hexValue(chain.chainId),
+            })),
+        );
+      }
+    } catch (_) {
+      // Don't do anything if switch and add failed
     }
   }
 };
