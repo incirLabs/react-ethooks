@@ -1,10 +1,9 @@
 import type {BigNumberish, providers} from 'ethers';
 
-declare global {
-  interface Window {
+export type Window = globalThis.Window &
+  typeof globalThis & {
     ethereum: import('ethers').providers.ExternalProvider;
-  }
-}
+  };
 
 export type LooseAutoComplete<T extends string> = T | Omit<string, T>;
 

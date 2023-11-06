@@ -4,7 +4,7 @@ import {EthersContext, RootContextProvider, BlockNumberProvider} from '../contex
 import {useAccountChange} from '../hooks';
 import {useMount} from '../hooks/internal';
 import useConnect from '../hooks/useConnect';
-import {Chain, EthersProvider} from '../types';
+import {Chain, EthersProvider, Window} from '../types';
 
 export interface EthooksProviderProps
   extends Partial<React.ComponentPropsWithoutRef<typeof RootContextProvider>> {
@@ -65,7 +65,8 @@ export const EthooksProvider: React.FC<EthooksProviderProps> = ({
   }
 
   const defaultProvider = useMemo(() => {
-    if ('ethereum' in window) return new providers.Web3Provider(window.ethereum, 'any');
+    if ('ethereum' in window) return new providers.Web3Provider((window as Window).ethereum, 'any');
+
     return null;
   }, []);
 
