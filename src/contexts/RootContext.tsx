@@ -8,15 +8,14 @@ export interface RootContextType {
   ensName?: string;
   chains: Chain[];
 }
+export type RootContextDispatch = React.Dispatch<React.SetStateAction<RootContextType>>;
 
 export interface RootContextProviderProps {
   initialState: RootContextType;
   children: React.ReactNode;
 }
 
-export const RootContext = createContext<
-  [RootContextType, React.Dispatch<React.SetStateAction<RootContextType>>] | null
->(null);
+export const RootContext = createContext<[RootContextType, RootContextDispatch] | null>(null);
 
 export const RootContextProvider: React.FC<RootContextProviderProps> = (props) => {
   const {children, initialState} = props;
@@ -29,7 +28,10 @@ export const RootContextProvider: React.FC<RootContextProviderProps> = (props) =
 export const useRootContext = (): RootContextType => {
   const context = useContext(RootContext);
 
-  if (!context) throw new Error('You must wrap your app content in EthooksProvider component');
+  if (!context) {
+    console.error('You must wrap your app content in EthooksProvider component');
+    return {chains: []};
+  }
 
   return context[0];
 };
@@ -37,15 +39,17 @@ export const useRootContext = (): RootContextType => {
 export const useSetRootContext = () => {
   const context = useContext(RootContext);
 
-  if (!context) throw new Error('You must wrap your app content in EthooksProvider component');
+  if (!context) {
+    console.error('You must wrap your app content in EthooksProvider component');
+  }
 
-  const setState = context[1];
+  const setState = context?.[1];
 
   return useCallback(
     (
       action: Partial<RootContextType> | ((previous: RootContextType) => Partial<RootContextType>),
     ): void => {
-      setState((prev) => ({...prev, ...(typeof action === 'function' ? action(prev) : action)}));
+      setState?.((prev) => ({...prev, ...(typeof action === 'function' ? action(prev) : action)}));
     },
     [setState],
   );

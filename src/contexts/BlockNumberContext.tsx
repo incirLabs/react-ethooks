@@ -29,7 +29,8 @@ export const useBlockNumber = (): number => {
   const context = useContext(BlockNumberContext);
 
   if (context === null) {
-    throw new Error('You must wrap your app content in EthooksProvider component');
+    console.error('You must wrap your app content in EthooksProvider component');
+    return 0;
   }
 
   return context;
